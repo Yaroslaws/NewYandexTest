@@ -1,8 +1,6 @@
 package tests;
 
-import org.openqa.selenium.JavascriptException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
@@ -19,7 +17,7 @@ public class OneTest {
 
 
   @Test
-  public void testYandex(){
+  public void testYandex() throws InterruptedException {
         WebDriver driver = ChromeDriverUtil.startChromeDriver();
       assert driver != null;
       driver.get("https://yandex.ru/");
@@ -28,10 +26,10 @@ public class OneTest {
         WebElementUtill.waitElement(driver, MarketYandex.electronika);
         WebElementUtill.waitElement(driver, MarketYandex.tv);
 
-        WebElementUtill.waitElement(driver, YandexCatalogTelevizory.arrowBuuttonSort);
+
 
         //не получается нажать на кнопку Показывать по 12
-
+//        WebElementUtill.waitElement(driver, YandexCatalogTelevizory.arrowBuuttonSort);
 //        WebElementUtill.selectElement(driver, "Показывать по 12");
 //      JavascriptExecutor js = (JavascriptExecutor) driver;
 //      js.executeScript("window.addEventListener('click', function(e) {\n" +
@@ -54,5 +52,10 @@ public class OneTest {
 //              "\n" +
 //              "}, false);" +
 //              "$(document.elementFromPoint(1039, 12381)).click();");
+
+      WebElementUtill.sendKeys(driver,  YandexCatalogTelevizory.priseFrom, "20000" );
+//      Thread.sleep(2000);
+      WebElementUtill.waitElement(driver, YandexCatalogTelevizory.fromLg);
+      WebElementUtill.waitElement(driver, YandexCatalogTelevizory.fromSamsung);
     }
 }
