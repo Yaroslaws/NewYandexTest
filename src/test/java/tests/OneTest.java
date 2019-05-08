@@ -3,7 +3,9 @@ package tests;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.MainYandex;
 import pages.MarketYandex;
@@ -12,21 +14,39 @@ import utils.ChromeDriverUtil;
 import utils.WebElementUtill;
 
 public class OneTest {
+    WebDriver driver;
+
+    @BeforeClass
+    public void criarDriver() throws InterruptedException {
+
+//        WebDriver driver = ChromeDriverUtil.startChromeDriver();
+//        assert driver != null;
+//        driver.get("https://yandex.ru/");
+
+    }
+
+
+    @AfterClass
+    public void teardown () {
+//        driver.quit();
+    }
 
 
 
 
   @Test
   public void testYandex() throws InterruptedException {
-        WebDriver driver = ChromeDriverUtil.startChromeDriver();
+      WebDriver driver = ChromeDriverUtil.startChromeDriver();
       assert driver != null;
       driver.get("https://yandex.ru/");
 
-        WebElementUtill.waitElement(driver, MainYandex.market);
-        WebElementUtill.waitElement(driver, MarketYandex.electronika);
-        WebElementUtill.waitElement(driver, MarketYandex.tv);
+      MainYandex mainYandex = new MainYandex(driver);
 
+      mainYandex.market.click();
 
+      MarketYandex marketYandex = new MarketYandex(driver);
+      marketYandex.electronika.click();
+      marketYandex.tv.click();
 
         //не получается нажать на кнопку Показывать по 12
 //        WebElementUtill.waitElement(driver, YandexCatalogTelevizory.arrowBuuttonSort);
@@ -53,9 +73,14 @@ public class OneTest {
 //              "}, false);" +
 //              "$(document.elementFromPoint(1039, 12381)).click();");
 
-      WebElementUtill.sendKeys(driver,  YandexCatalogTelevizory.priseFrom, "20000" );
-//      Thread.sleep(2000);
-      WebElementUtill.waitElement(driver, YandexCatalogTelevizory.fromLg);
-      WebElementUtill.waitElement(driver, YandexCatalogTelevizory.fromSamsung);
+      YandexCatalogTelevizory yandexCatalogTelevizory = new YandexCatalogTelevizory(driver);
+      yandexCatalogTelevizory.priseFrom.sendKeys("20000");
+      yandexCatalogTelevizory.fromLg.click();
+      yandexCatalogTelevizory.fromSamsung.click();
+
+
+
+
+
     }
 }
