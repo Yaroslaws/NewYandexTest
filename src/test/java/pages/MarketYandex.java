@@ -14,6 +14,9 @@ public class MarketYandex extends Page {
     public  WebElement electronika;
     @FindBy(xpath="//a[.='Телевизоры']")
     public  WebElement tv;
+    @FindBy(xpath="//a[.='Наушники и Bluetooth-гарнитуры']")
+    public  WebElement headphones;
+
 
 
     public MarketYandex(WebDriver driver){

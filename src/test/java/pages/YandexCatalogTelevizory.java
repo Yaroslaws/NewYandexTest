@@ -19,7 +19,6 @@ public class YandexCatalogTelevizory {
     @FindBy(xpath="//span[@class='NVoaOvqe58' and .= 'Samsung']")
     public  WebElement fromSamsung;
     //находит 1 заголовок всех результатов поиска
-    //a.='Телевизор Samsung UE40NU7100U']
     @FindBy(xpath="//div[@class='n-snippet-card2__title']/a")
     public  WebElement masResult;
     @FindBy(xpath="//input[@id='header-search']")

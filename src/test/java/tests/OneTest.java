@@ -40,14 +40,14 @@ public class OneTest extends MainTest {
             yandexCatalogTelevizory = new YandexCatalogTelevizory(driver);
             String str = yandexCatalogTelevizory.masResult.getText();
             WebElementUtill.sendKeys(driver,yandexCatalogTelevizory.headerSearch, str);
-            Assert.assertEquals(str,"Телевизор Samsung UE40NU7100U");
+            Assert.assertEquals(str,"Телевизор Samsung UE32N5000AU");
 
 
         } catch (Exception e) {
             fail();
             System.out.println(e);
         } finally {
-            if (driver != null) driver.quit();
+//            if (driver != null) driver.quit();
 
         }
     }

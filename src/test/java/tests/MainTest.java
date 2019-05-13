@@ -14,7 +14,6 @@ public class MainTest {
 
     static {
         driver = ChromeDriverUtil.startChromeDriver();
-        driver.manage().window().setSize(new Dimension(1280, 900));
     }
 
 }
