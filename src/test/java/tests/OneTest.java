@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -17,7 +18,7 @@ public class OneTest {
     WebDriver driver;
 
     @BeforeClass
-    public void criarDriver() throws InterruptedException {
+    public void driver() throws InterruptedException {
 
 //        WebDriver driver = ChromeDriverUtil.startChromeDriver();
 //        assert driver != null;
@@ -48,8 +49,12 @@ public class OneTest {
       marketYandex.electronika.click();
       marketYandex.tv.click();
 
-        //не получается нажать на кнопку Показывать по 12
-//        WebElementUtill.waitElement(driver, YandexCatalogTelevizory.arrowBuuttonSort);
+        WebElementUtill.waitElement(driver, YandexCatalogTelevizory.arrowBuuttonSort);
+
+//        злополучная кнопка
+//        Select drpFindBy = new Select(driver.findElement(By.className("button button_theme_normal button_arrow_down button_size_s select__button i-bem button_js_inited button_focused_yes")));
+//        drpFindBy.selectByVisibleText("Показывать по 12");
+
 //        WebElementUtill.selectElement(driver, "Показывать по 12");
 //      JavascriptExecutor js = (JavascriptExecutor) driver;
 //      js.executeScript("window.addEventListener('click', function(e) {\n" +
@@ -73,10 +78,10 @@ public class OneTest {
 //              "}, false);" +
 //              "$(document.elementFromPoint(1039, 12381)).click();");
 
-      YandexCatalogTelevizory yandexCatalogTelevizory = new YandexCatalogTelevizory(driver);
-      yandexCatalogTelevizory.priseFrom.sendKeys("20000");
-      yandexCatalogTelevizory.fromLg.click();
-      yandexCatalogTelevizory.fromSamsung.click();
+//      YandexCatalogTelevizory yandexCatalogTelevizory = new YandexCatalogTelevizory(driver);
+//      yandexCatalogTelevizory.priseFrom.sendKeys("20000");
+//      yandexCatalogTelevizory.fromLg.click();
+//      yandexCatalogTelevizory.fromSamsung.click();
 
 
 
