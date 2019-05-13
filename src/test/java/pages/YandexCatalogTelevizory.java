@@ -10,17 +10,16 @@ public class YandexCatalogTelevizory {
 
     WebDriver driver;
 
-    public static By arrowBuuttonSort = By.xpath("//button[contains(@class,'button_arrow_down')]");
-
-
+    @FindBy(xpath="//button[contains(@class,'button_arrow_down')]")
+    public static WebElement arrowBuuttonSort;
     @FindBy(xpath="//input[@name='Цена от']")
-    public  WebElement priseFrom;
+    public static WebElement priseFrom;
     @FindBy(xpath="//span[@class='NVoaOvqe58' and .= 'LG']")
-    public  WebElement fromLg;
+    public static  WebElement fromLg;
     @FindBy(xpath="//span[@class='NVoaOvqe58' and .= 'Samsung']")
-    public  WebElement fromSamsung;
+    public static  WebElement fromSamsung;
     @FindBy(xpath="div[@class = 'n-filter-applied-results metrika b-zone i-bem n-filter-applied-results_js_inited b-zone_js_inited']//div[@class='n-snippet-card2__title']/a")
-    public  WebElement masResult;
+    public static  WebElement masResult;
 
     public YandexCatalogTelevizory(WebDriver driver){
         PageFactory.initElements(driver,this);

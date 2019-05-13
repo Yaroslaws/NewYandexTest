@@ -11,7 +11,7 @@ public  class MainYandex {
 
 
     @FindBy(xpath = "//a[@data-id='market']")
-    public WebElement market;
+    public static WebElement market;
 
     public MainYandex(WebDriver driver) {
         PageFactory.initElements(driver, this);

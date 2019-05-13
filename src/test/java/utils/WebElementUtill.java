@@ -5,6 +5,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.testng.Assert.fail;
+
 public class WebElementUtill {
 
 
@@ -16,7 +18,6 @@ public class WebElementUtill {
             element =  (new WebDriverWait(driver, 3, 1000)).until(ExpectedConditions.elementToBeClickable(locator));
             element.clear();
             element.sendKeys(text);
-
         }
         catch (Exception e)
         {
@@ -25,8 +26,7 @@ public class WebElementUtill {
         return element;
     }
 
-    public static  WebElement waitElement(WebDriver driver,By locator) {
-        //WebElement element=null;
+    public static  WebElement waitElement(WebDriver driver,WebElement locator) {
         try {
             element =  (new WebDriverWait(driver, 3, 1000)).until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
@@ -34,6 +34,7 @@ public class WebElementUtill {
         catch (Exception e)
         {
             System.out.println("Не нашел локатор" + locator);
+            fail();
         }
         return element;
     }
