@@ -12,7 +12,7 @@ public class WebElementUtill {
 
     public static WebElement element;
 
-    public static  WebElement sendKeys(WebDriver driver,By locator, String text) {
+    public static  WebElement sendKeys(WebDriver driver,WebElement locator, String text) {
         //WebElement element=null;
         try {
             element =  (new WebDriverWait(driver, 3, 1000)).until(ExpectedConditions.elementToBeClickable(locator));

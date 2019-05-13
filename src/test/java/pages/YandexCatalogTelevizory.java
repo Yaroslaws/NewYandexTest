@@ -11,15 +11,20 @@ public class YandexCatalogTelevizory {
     WebDriver driver;
 
     @FindBy(xpath="//button[contains(@class,'button_arrow_down')]")
-    public static WebElement arrowBuuttonSort;
+    public  WebElement arrowBuuttonSort;
     @FindBy(xpath="//input[@name='Цена от']")
-    public static WebElement priseFrom;
+    public  WebElement priseFrom;
     @FindBy(xpath="//span[@class='NVoaOvqe58' and .= 'LG']")
-    public static  WebElement fromLg;
+    public  WebElement fromLg;
     @FindBy(xpath="//span[@class='NVoaOvqe58' and .= 'Samsung']")
-    public static  WebElement fromSamsung;
-    @FindBy(xpath="div[@class = 'n-filter-applied-results metrika b-zone i-bem n-filter-applied-results_js_inited b-zone_js_inited']//div[@class='n-snippet-card2__title']/a")
-    public static  WebElement masResult;
+    public  WebElement fromSamsung;
+    //находит 1 заголовок всех результатов поиска
+    //a.='Телевизор Samsung UE40NU7100U']
+    @FindBy(xpath="//div[@class='n-snippet-card2__title']/a")
+    public  WebElement masResult;
+    @FindBy(xpath="//input[@id='header-search']")
+    public WebElement headerSearch;
+
 
     public YandexCatalogTelevizory(WebDriver driver){
         PageFactory.initElements(driver,this);
