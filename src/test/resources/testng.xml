@@ -1,0 +1,11 @@
+
+<suite name="TestAll">
+
+    <test name="order">
+        <classes>
+            //проблема с ссылкой
+            <!--<class name="src\test\java\tests\OneTest" />-->
+            <!--<class name="test\java\tests\TwoTest.java" />-->
+        </classes>
+    </test>
+</suite>
