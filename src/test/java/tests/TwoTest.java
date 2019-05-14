@@ -34,6 +34,9 @@ public class TwoTest extends MainTest {
             WebElementUtill.waitElement(driver, yandexCatalogHeadPhones.beats);
 
             Thread.sleep(4000);
+            int num = driver.findElements(By.xpath("//div[@class='n-snippet-list n-snippet-list_type_grid snippet-list_size_3 metrika b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited b-zone_js_inited']/div")).size();
+            //проверка на вывод 12 товаров
+            Assert.assertEquals(num, 12);
             yandexCatalogHeadPhones = new YnadexCatalogHeadPhones(driver);
             String str = yandexCatalogHeadPhones.masResult.getText();
             WebElementUtill.sendKeys(driver,yandexCatalogHeadPhones.headerSearch, str);
@@ -47,7 +50,7 @@ public class TwoTest extends MainTest {
             fail();
             System.out.println(e);
         } finally {
-//            if (driver != null) driver.quit();
+            if (driver != null) driver.quit();
 
         }
     }

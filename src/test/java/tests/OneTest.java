@@ -11,6 +11,11 @@ import pages.MarketYandex;
 import pages.YandexCatalogTelevizory;
 import utils.WebElementUtill;
 
+import javax.xml.xpath.XPathExpression;
+
+import java.util.regex.Pattern;
+
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 public class OneTest extends MainTest {
@@ -37,6 +42,9 @@ public class OneTest extends MainTest {
 
 
             Thread.sleep(4000);
+            int num = driver.findElements(By.xpath("//div[@class='n-snippet-list n-snippet-list_type_vertical metrika b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited b-zone_js_inited']/div")).size();
+            //проверка на вывод 12 товаров
+            Assert.assertEquals(num, 12);
             yandexCatalogTelevizory = new YandexCatalogTelevizory(driver);
             String str = yandexCatalogTelevizory.masResult.getText();
             WebElementUtill.sendKeys(driver,yandexCatalogTelevizory.headerSearch, str);
@@ -47,7 +55,7 @@ public class OneTest extends MainTest {
             fail();
             System.out.println(e);
         } finally {
-//            if (driver != null) driver.quit();
+            if (driver != null) driver.quit();
 
         }
     }
