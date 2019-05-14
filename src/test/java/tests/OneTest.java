@@ -56,7 +56,6 @@ public class OneTest extends MainTest {
             System.out.println(e);
         } finally {
             if (driver != null) driver.quit();
-
         }
     }
 }
