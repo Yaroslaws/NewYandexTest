@@ -1,21 +1,13 @@
 package tests;
 
 import org.openqa.selenium.*;
-
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.MainYandex;
 import pages.MarketYandex;
 import pages.YandexCatalogTelevizory;
+import utils.ChromeDriverUtil;
 import utils.WebElementUtill;
-
-import javax.xml.xpath.XPathExpression;
-
-import java.util.regex.Pattern;
-
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 public class OneTest extends MainTest {
@@ -24,6 +16,7 @@ public class OneTest extends MainTest {
     public void testYandex() throws InterruptedException {
 
         try {
+           WebDriver driver = ChromeDriverUtil.startChromeDriver();
             driver.get("https://yandex.ru/");
             MainYandex mainYandex = new MainYandex(driver);
             WebElementUtill.waitElement(driver, mainYandex.market);
@@ -55,7 +48,7 @@ public class OneTest extends MainTest {
             fail();
             System.out.println(e);
         } finally {
-            if (driver != null) driver.quit();
+//            if (driver != null) driver.quit();
         }
     }
 }

@@ -1,12 +1,14 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainYandex;
 import pages.MarketYandex;
 import pages.YandexCatalogTelevizory;
 import pages.YnadexCatalogHeadPhones;
+import utils.ChromeDriverUtil;
 import utils.WebElementUtill;
 
 import static org.testng.Assert.fail;
@@ -17,6 +19,7 @@ public class TwoTest extends MainTest {
 
 
         try {
+            WebDriver driver = ChromeDriverUtil.startChromeDriver();
             driver.get("https://yandex.ru/");
             MainYandex mainYandex = new MainYandex(driver);
             WebElementUtill.waitElement(driver, mainYandex.market);
@@ -47,11 +50,11 @@ public class TwoTest extends MainTest {
 
 
         } catch (Exception e) {
-            fail();
             System.out.println(e);
-        } finally {
-            if (driver != null) driver.quit();
+            fail();
 
+        } finally {
+//            if (driver != null) driver.quit();
         }
     }
 }
