@@ -16,7 +16,7 @@ public class OneTest extends MainTest {
     public void testYandex() throws InterruptedException {
 
         try {
-           WebDriver driver = ChromeDriverUtil.startChromeDriver();
+            WebDriver driver = ChromeDriverUtil.startChromeDriver();
             driver.get("https://yandex.ru/");
             MainYandex mainYandex = new MainYandex(driver);
             WebElementUtill.waitElement(driver, mainYandex.market);
