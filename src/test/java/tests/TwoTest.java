@@ -13,13 +13,15 @@ import utils.WebElementUtill;
 
 import static org.testng.Assert.fail;
 
-public class TwoTest extends MainTest {
+public class TwoTest implements Runnable {
+    public Object s;
+
     @Test
-    public void testYandex2() throws InterruptedException {
+    public void test2() throws InterruptedException {
 
-
+        WebDriver driver = ChromeDriverUtil.startChromeDriver();
         try {
-            WebDriver driver = ChromeDriverUtil.startChromeDriver();
+
             driver.get("https://yandex.ru/");
             MainYandex mainYandex = new MainYandex(driver);
             WebElementUtill.waitElement(driver, mainYandex.market);
@@ -45,16 +47,22 @@ public class TwoTest extends MainTest {
             WebElementUtill.sendKeys(driver,yandexCatalogHeadPhones.headerSearch, str);
             Assert.assertEquals(str,"Наушники Beats BeatsX Wireless");
 
-
-
-
-
+            driver.close();
         } catch (Exception e) {
+            driver.close();
             System.out.println(e);
             fail();
-
-        } finally {
-//            if (driver != null) driver.quit();
         }
     }
+
+    public void run() {
+        System.out.println("start test 2");
+        try {
+            test2();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

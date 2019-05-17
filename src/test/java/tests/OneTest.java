@@ -8,12 +8,15 @@ import pages.MarketYandex;
 import pages.YandexCatalogTelevizory;
 import utils.ChromeDriverUtil;
 import utils.WebElementUtill;
+
+import java.util.Formatter;
+
 import static org.testng.Assert.fail;
 
 public class OneTest extends MainTest {
 
     @Test
-    public void testYandex() throws InterruptedException {
+    public void test1() throws InterruptedException {
 
         try {
             WebDriver driver = ChromeDriverUtil.startChromeDriver();
@@ -43,12 +46,10 @@ public class OneTest extends MainTest {
             WebElementUtill.sendKeys(driver,yandexCatalogTelevizory.headerSearch, str);
             Assert.assertEquals(str,"Телевизор Samsung UE32N5000AU");
 
-
+           driver.close();
         } catch (Exception e) {
             fail();
             System.out.println(e);
-        } finally {
-//            if (driver != null) driver.quit();
         }
     }
 }
